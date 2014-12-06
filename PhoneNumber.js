@@ -422,7 +422,10 @@ var PhoneNumber = (function (dataBase) {
 
     // Lookup the meta data for the given region.
     var md = FindMetaDataForRegion(defaultRegion.toUpperCase());
-
+    // We don't know the region - nothing we can do
+    if (md === undefined) {
+      return null;
+    }
     // See if the number starts with an international prefix, and if the
     // number resulting from stripping the code is valid, then remove the
     // prefix and flag the number as international.
